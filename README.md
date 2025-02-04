@@ -90,20 +90,22 @@ The extension uses:
 
 ## Known Issues
 
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> ESC will cancel selection but have a conflict with windows shortcuts if pressed with ctrl || shift || alt
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Unknown compatibility with other browsers or operating systems.
-- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Right mouse for open links
-- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Ctrl + Left mouse for open links. Only action with right mouse works
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Lifting keyboard key and no action is found for mouse only actions, is still selecting
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Removed unused context menu permission
+- 🔴 ESC will cancel selection but have a conflict with windows shortcuts if pressed with ctrl || shift || alt
+- 🔴 Unknown compatibility with other browsers or operating systems.
+- 🟢 Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Right mouse for open links - Copy links with CTRL + Right Mouse, release the CTRL, it does not change to open links while the opposite works.
+- 🟢 Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Ctrl + Left mouse for open links. Only action with right mouse works
+- 🔴 Lifting keyboard key and no action is found for mouse only actions, is still selecting
+- 🟢 Removed unused context menu permission
 
 ## Features to be added
 
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Open Links/tabs in reverse order
-- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Copy links with titles
-- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Provide different color on add new action
-- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Append Urls to clipboard. Clipboard = selected links + clipboard
-- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add rating button
+- 🔴 Open Links/tabs in reverse order
+- 🟢 Copy links with titles
+- 🟢  Provide different color on add new action
+- 🔴 Append Urls to clipboard. Clipboard = selected links + clipboard
+- 🟢 Add rating button
+- 🟢 Open tabs next to active tab
+- 🟢 Recognize <a> tags that are not visible
 
 
 ## Version 1.0.1 Changelog:
