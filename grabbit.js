@@ -255,60 +255,58 @@ chrome.runtime.sendMessage({
           e.preventDefault();
       }
   });
-    // Handle link selection
-    function updateSelectedLinks() {
-        // Get all links on the page
-        const links = document.querySelectorAll('a');
-        // Get the bounding rectangle of the selection box
-        const boxRect = selectionBox.getBoundingClientRect();
+
+  // Handle link selection
+  function updateSelectedLinks() {
+      const links = document.querySelectorAll('a');
+      const boxRect = selectionBox.getBoundingClientRect();
     
-        // Iterate through each link
-        links.forEach(link => {
-            // Only check for sticky elements to prevent scrolling bugs
-            if (isElementSticky(link)) {
+      links.forEach(link => {
+        // Check if element is sticky
+        if (isElementSticky(link)) {
+            return;
+        }
+
+         // Add visibility checks
+         const style = window.getComputedStyle(link);
+         if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+             return;
+         }
+
+         
+      
+        
+         
+          const rect = link.getBoundingClientRect();
+          // Check if element is actually visible in viewport
+          if (rect.width === 0 || rect.height === 0) {
+            return;
+        }
+
+        // Check if any parent element makes this invisible
+        let parent = link.parentElement;
+        while (parent) {
+            const parentStyle = window.getComputedStyle(parent);
+            if (parentStyle.display === 'none' || parentStyle.visibility === 'hidden') {
                 return;
             }
+            parent = parent.parentElement;
+        }
+        // Check if link is within selection box
+          const isInBox = !(rect.left > boxRect.right || 
+                         rect.right < boxRect.left || 
+                         rect.top > boxRect.bottom || 
+                         rect.bottom < boxRect.top);
         
-            // Get the bounding rectangle of the current link
-            const rect = link.getBoundingClientRect();
-        
-            // Check if link is within selection box
-            const isInBox = !(rect.left > boxRect.right || 
-                       rect.right < boxRect.left || 
-                       rect.top > boxRect.bottom || 
-                       rect.bottom < boxRect.top);
-    
-            // If the link is inside the selection box
-            if (isInBox) {
-                // Add the link to the set of selected links
-                selectedLinks.add(link);
-                // Highlight the link with a semi-transparent version of the box color
-                link.style.backgroundColor = `${currentMatchedAction.boxColor}33`;
-            } else {
-                // If the link is outside the box, remove it from the set
-                selectedLinks.delete(link);
-                // Remove the highlight
-                link.style.backgroundColor = '';
-            }
-        });
-    }
-
-    // Lines that need to be edited or removed:
-    // - Remove: const style = window.getComputedStyle(link);
-    // - Remove: if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
-    // - Remove:     return;
-    // - Remove: }
-    // - Remove: if (rect.width === 0 || rect.height === 0) {
-    // - Remove:   return;
-    // - Remove: }
-    // - Remove: let parent = link.parentElement;
-    // - Remove: while (parent) {
-    // - Remove:     const parentStyle = window.getComputedStyle(parent);
-    // - Remove:     if (parentStyle.display === 'none' || parentStyle.visibility === 'hidden') {
-    // - Remove:         return;
-    // - Remove:     }
-    // - Remove:     parent = parent.parentElement;
-    // - Remove: }
+          if (isInBox) {
+              selectedLinks.add(link);
+              link.style.backgroundColor = `${currentMatchedAction.boxColor}33`;
+          } else {
+              selectedLinks.delete(link);
+              link.style.backgroundColor = '';
+          }
+      });
+  }
 //how the counter label is created
 function createCounterLabel() {
     const label = document.createElement('div');
