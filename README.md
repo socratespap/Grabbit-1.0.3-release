@@ -90,20 +90,20 @@ The extension uses:
 
 ## Known Issues
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) ESC will cancel selection but have a conflict with windows shortcuts if pressed with ctrl || shift || alt
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Unknown compatibility with other browsers or operating systems.
-- ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Right mouse for open links	- Copy links with CTRL + Right Mouse, release the CTRL, it does not change to open links while the opposite works.
-- ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Ctrl + Left mouse for open links. Only action with right mouse works
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Lifting keyboard key and no action is found for mouse only actions, is still selecting
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Removed unused context menu permission
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> ESC will cancel selection but have a conflict with windows shortcuts if pressed with ctrl || shift || alt
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Unknown compatibility with other browsers or operating systems.
+- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Right mouse for open links
+- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Ctrl + Left mouse for open links. Only action with right mouse works
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Lifting keyboard key and no action is found for mouse only actions, is still selecting
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Removed unused context menu permission
 
 ## Features to be added
 
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Open Links/tabs in reverse order
-- ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Copy links with titles
-- ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+)  Provide different color on add new action
-- ![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Append Urls to clipboard. Clipboard = selected links + clipboard
-- ![#00ff00](https://via.placeholder.com/15/00ff00/000000?text=+) Add rating button
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Open Links/tabs in reverse order
+- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Copy links with titles
+- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Provide different color on add new action
+- <span style="display:inline-block;width:15px;height:15px;background-color:#f03c15;border:1px solid #000;"></span> Append Urls to clipboard. Clipboard = selected links + clipboard
+- <span style="display:inline-block;width:15px;height:15px;background-color:#00ff00;border:1px solid #000;"></span> Add rating button
 
 
 ## Version 1.0.1 Changelog:
