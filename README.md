@@ -113,3 +113,8 @@ Removed unused context menu permission
 ## Version 1.0.2 Changelog:
 
 Added activeTab permission
+
+## Version 1.0.3 Changelog:
+
+Opens Tabs next to active tab
+Recognize <a> tags that are not visible
