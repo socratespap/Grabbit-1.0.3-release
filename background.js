@@ -26,8 +26,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
     //create tabs
     if (request.action === 'createTab') {
+        // Get the index of the current tab
+        const currentIndex = sender.tab.index;
+        // Create a new tab with the specified URL
         chrome.tabs.create({
             url: request.url,
+            // Set the new tab's index to be right after the current tab
+            index: currentIndex + 1,
+            // Don't make the new tab active
             active: false
         });
     }

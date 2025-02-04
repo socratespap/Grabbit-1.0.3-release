@@ -255,58 +255,53 @@ chrome.runtime.sendMessage({
           e.preventDefault();
       }
   });
+    // Handle link selection
+    function updateSelectedLinks() {
+        // Get all links on the page
+        const links = document.querySelectorAll('a');
+        // Get the bounding rectangle of the selection box
+        const boxRect = selectionBox.getBoundingClientRect();
 
-  // Handle link selection
-  function updateSelectedLinks() {
-      const links = document.querySelectorAll('a');
-      const boxRect = selectionBox.getBoundingClientRect();
-    
-      links.forEach(link => {
-        // Check if element is sticky
-        if (isElementSticky(link)) {
-            return;
-        }
-
-         // Add visibility checks
-         const style = window.getComputedStyle(link);
-         if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
-             return;
-         }
-
-         
-      
-        
-         
-          const rect = link.getBoundingClientRect();
-          // Check if element is actually visible in viewport
-          if (rect.width === 0 || rect.height === 0) {
-            return;
-        }
-
-        // Check if any parent element makes this invisible
-        let parent = link.parentElement;
-        while (parent) {
-            const parentStyle = window.getComputedStyle(parent);
-            if (parentStyle.display === 'none' || parentStyle.visibility === 'hidden') {
+        // Iterate through each link
+        links.forEach(link => {
+            // Check if element is sticky
+            if (isElementSticky(link)) {
                 return;
             }
-            parent = parent.parentElement;
-        }
-        // Check if link is within selection box
-          const isInBox = !(rect.left > boxRect.right || 
-                         rect.right < boxRect.left || 
-                         rect.top > boxRect.bottom || 
-                         rect.bottom < boxRect.top);
-        
-          if (isInBox) {
-              selectedLinks.add(link);
-              link.style.backgroundColor = `${currentMatchedAction.boxColor}33`;
-          } else {
-              selectedLinks.delete(link);
-              link.style.backgroundColor = '';
-          }
-      });
-  }
+
+            // Add visibility checks
+            const style = window.getComputedStyle(link);
+            if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+                return;
+            }
+
+            // Get the bounding rectangle of the link; if zero, try its first child if available
+            let rect = link.getBoundingClientRect();
+            if ((rect.width === 0 || rect.height === 0) && link.children.length > 0) {
+                rect = link.children[0].getBoundingClientRect();
+            }
+            // If the rectangle is still zero-sized, skip this link
+        //    if (rect.width === 0 || rect.height === 0) {
+          //      return;
+          //  }
+
+            // Check if link is within selection box
+            const isInBox = !(rect.left > boxRect.right ||
+                              rect.right < boxRect.left ||
+                              rect.top > boxRect.bottom ||
+                              rect.bottom < boxRect.top);
+
+            // If the link is in the box, add it to selectedLinks and highlight it
+            if (isInBox) {
+                selectedLinks.add(link);
+                link.style.backgroundColor = `${currentMatchedAction.boxColor}33`;
+            } else {
+                // If not in the box, remove from selectedLinks and clear highlight
+                selectedLinks.delete(link);
+                link.style.backgroundColor = '';
+            }
+        });
+    }
 //how the counter label is created
 function createCounterLabel() {
     const label = document.createElement('div');
