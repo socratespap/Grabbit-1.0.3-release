@@ -54,7 +54,7 @@ The settings page that allows users to:
 5. Select the extension directory
 
 Or directly from the chome extension store:
-https://chrome.google.com/webstore/detail/Grabbit/
+[https://chrome.google.com/webstore/detail/Grabbit/](https://chromewebstore.google.com/detail/grabbit/madmdgpjgagdmmmiddpiggdnpgjglcdk)
 
 ## Usage
 
