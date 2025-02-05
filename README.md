@@ -118,5 +118,5 @@ Added activeTab permission
 
 ## Version 1.0.3 Changelog:
 
-Opens Tabs next to active tab
-Recognize <a> tags that are not visible
+- Opens Tabs next to active tab
+- Recognize <a> tags that are not visible
