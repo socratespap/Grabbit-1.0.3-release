@@ -207,18 +207,21 @@ document.addEventListener('mousemove', (e) => {
               [...new Set(urls)] : urls;
 
               if (matchedAction.openLinks) {
-                finalUrls.forEach(url => {
+                finalUrls.forEach((url,index) => {
                     // Send a message to the background script to create the tab
-                    chrome.runtime.sendMessage({
-                        action: 'createTab',
-                        url: url
-                    });
+                    setTimeout(function(){
+                        chrome.runtime.sendMessage({
+                            action: 'createTab',
+                            url: url
+                        });
+                    }, index * matchedAction.openDelay * 1000);
                 });
             } else if (matchedAction.openWindow) {
 // Send message to background script to handle window/tab creation
 chrome.runtime.sendMessage({
     action: 'openLinks',
-    urls: finalUrls
+    urls: finalUrls,
+    openDelay: matchedAction.openDelay
   });
   
             } else if (matchedAction.copyUrls) {
