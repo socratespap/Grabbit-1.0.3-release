@@ -70,6 +70,7 @@ if (action.openWindow) features.push('Open in Window'); // Add this line
 if (action.copyUrls) features.push('Copy URLs');
 if (action.smartSelect === 'on') features.push('Smart Select');
 if (action.copyUrlsAndTitles) features.push('Copy URLs & Titles');
+if (action.openDelay > 0) features.push('Open Delay');
 
 
 
@@ -102,6 +103,7 @@ if (action.copyUrlsAndTitles) features.push('Copy URLs & Titles');
         document.getElementById('mouseButton').value = action.combination.mouseButton;
         document.getElementById('actionType').value = action.openLinks ? 'openLinks' : 'copyUrls';
         document.getElementById('smartSelect').value = action.smartSelect;
+        document.getElementById('openDelay').value = action.openDelay;
         document.getElementById('boxColor').value = action.boxColor || '#2196F3'; // Load saved color or default
 
         // Show the modal and mark it as editing
@@ -222,7 +224,8 @@ document.getElementById('saveButton').addEventListener('click', () => {
         copyUrls: actionType.value === 'copyUrls',
         copyUrlsAndTitles: actionType.value === 'copyUrlsAndTitles',
         smartSelect: document.getElementById('smartSelect').value,
-        boxColor: document.getElementById('boxColor').value
+        boxColor: document.getElementById('boxColor').value,
+        openDelay: document.getElementById('openDelay').value
     };
 
     // Handle editing vs creating new action

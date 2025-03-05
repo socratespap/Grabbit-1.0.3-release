@@ -15,12 +15,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             focused: true,            
         }, (newWindow) => {
             // Create tabs for remaining URLs in the new window
-            request.urls.slice(1).forEach(url => {
-                chrome.tabs.create({
-                    windowId: newWindow.id,
-                    url: url,
-                    active: false
-                });
+            request.urls.slice(1).forEach((url,index) => {
+                setTimeout(function(){
+                    chrome.tabs.create({
+                        windowId: newWindow.id,
+                        url: url,
+                        active: false
+                    });
+                },index * request.openDelay * 1000);
             });
         });
     }
