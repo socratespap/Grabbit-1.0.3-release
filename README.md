@@ -96,6 +96,8 @@ The extension uses:
 - 🟢 Add two actions. Action 1: Ctrl + Right Mouse for copy link. Action 2: Ctrl + Left mouse for open links. Only action with right mouse works
 - 🔴 Lifting keyboard key and no action is found for mouse only actions, is still selecting
 - 🟢 Removed unused context menu permission
+- 🔴 Not compatible with Netsuite
+- 🔴 Fix naming of buttons in Mac
 
 ## Features to be added
 
@@ -106,7 +108,11 @@ The extension uses:
 - 🟢 Add rating button
 - 🟢 Open tabs next to active tab
 - 🟢 Recognize <a> tags that are not visible
-
+- 🔴 Include Compatibility with Youtube Subscriptions links
+- 🔴 Add delay when opening tabs
+- 🔴 Include option when copying URLs ("Title <tab> Url, instead of Title \n Url")
+- 🔴 Create Bookmarks
+- 🔴 Fix compatibility with Netsuite
 
 ## Version 1.0.1 Changelog:
 
